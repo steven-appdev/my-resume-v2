@@ -2,7 +2,7 @@ export default function Navbar() {
   return (
     <div className="flex justify-between px-64 py-9 bg-black text-white">
       <div>
-        <p className="text-lg font-semibold">Steven&apos;s Resume</p>
+        <p className="text-lg font-semibold">Steven&apos;s Portfolio</p>
       </div>
       <div className="flex flex-row gap-16">
         <p className="text-base font-semibold">Home</p>
