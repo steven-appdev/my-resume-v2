@@ -11,7 +11,7 @@ export default function Home() {
       <div className="flex-grow flex flex-col items-center justify-center pb-20 gap-20 px-72">
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-row gap-12 items-center">
-            <p className="text-[88px] text-white font-mono">i am</p>
+            <p className="text-[64px] text-white font-mono">i am</p>
             <Typewriter
               options={{
                 strings: [
@@ -27,8 +27,8 @@ export default function Home() {
                 delay: 95,
                 deleteSpeed: 25,
                 cursor: "_",
-                cursorClassName: "text-[88px] text-neutral-100",
-                wrapperClassName: "text-[88px] text-neutral-100 font-mono",
+                cursorClassName: "text-[64px] text-neutral-100",
+                wrapperClassName: "text-[64px] text-neutral-100 font-mono",
               }}
             />
           </div>

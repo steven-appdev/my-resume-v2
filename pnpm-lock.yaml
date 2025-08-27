@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@netlify/plugin-nextjs':
+        specifier: ^5.12.1
+        version: 5.12.1
       lucide-react:
         specifier: ^0.540.0
         version: 0.540.0(react@19.1.0)
@@ -272,6 +275,10 @@ packages:
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
+
+  '@netlify/plugin-nextjs@5.12.1':
+    resolution: {integrity: sha512-b2Ic9NkNnnh0lKC/YWDZ2+HdLd/uYdBzLvLKYOkPyFt8KEszoC+Je3GRcwBeOLxaNtK8lji7YPIjtGz8K2sLVQ==}
+    engines: {node: '>=18.0.0'}
 
   '@next/env@15.5.0':
     resolution: {integrity: sha512-sDaprBAfzCQiOgo2pO+LhnV0Wt2wBgartjrr+dpcTORYVnnXD0gwhHhiiyIih9hQbq+JnbqH4odgcFWhqCGidw==}
@@ -2018,6 +2025,8 @@ snapshots:
       '@emnapi/runtime': 1.4.5
       '@tybys/wasm-util': 0.10.0
     optional: true
+
+  '@netlify/plugin-nextjs@5.12.1': {}
 
   '@next/env@15.5.0': {}
 
