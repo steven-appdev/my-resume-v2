@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Gamepad, Github, Linkedin, Mail, Phone } from "lucide-react";
 import Typewriter from "typewriter-effect";
 
 export default function Home() {
@@ -43,30 +43,53 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-row gap-14">
           <button
-            className="bg-neutral-100 p-3 rounded-2xl cursor-pointer"
-            onClick={() => {}}
+            className="cursor-pointer"
+            onClick={() => (window.location.href = "mailto:steven-appdev@outlook.com")}
           >
-            <Mail className="text-black" size={30} />
+            <Mail
+              className="text-neutral-100 hover:text-neutral-400 transition duration-200 ease-in-out"
+              size={30}
+            />
           </button>
           <button
-            className="bg-neutral-100 p-3 rounded-2xl cursor-pointer"
-            onClick={() => {}}
+            className="cursor-pointer"
+            onClick={() => (window.location.href = "tel:+60102959289")}
           >
-            <Phone className="text-black" size={30} />
+            <Phone
+              className="text-neutral-100 hover:text-neutral-400 transition duration-200 ease-in-out"
+              size={30}
+            />
           </button>
           <button
-            className="bg-neutral-100 p-3 rounded-2xl cursor-pointer"
-            onClick={() => {}}
+            className="cursor-pointer"
+            onClick={() => window.open("https://stevenplus.itch.io/", "_blank")}
           >
-            <Linkedin className="text-black" size={30} />
+            <Gamepad
+              className="text-neutral-100 hover:text-neutral-400 transition duration-200 ease-in-out"
+              size={30}
+            />
           </button>
           <button
-            className="bg-neutral-100 p-3 rounded-2xl cursor-pointer"
-            onClick={() => {}}
+            className="cursor-pointer"
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/teck-xun-t-990149116/", "_blank")
+            }
           >
-            <Github className="text-black" size={30} />
+            <Linkedin
+              className="text-neutral-100 hover:text-neutral-400 transition duration-200 ease-in-out"
+              size={30}
+            />
+          </button>
+          <button
+            className="cursor-pointer"
+            onClick={() => window.open("https://github.com/steven-appdev", "_blank")}
+          >
+            <Github
+              className="text-neutral-100 hover:text-neutral-400 transition duration-200 ease-in-out"
+              size={30}
+            />
           </button>
         </div>
       </div>
