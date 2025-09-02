@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -8,46 +9,46 @@ export default function Navbar() {
         <p className="text-lg font-semibold">Steven&apos;s Portfolio</p>
       </div>
       <div className="flex flex-row gap-16">
-        <a
+        <Link
           className={`text-base font-semibold ${
             pathname === "/" && "underline underline-offset-8"
           }`}
           href="/"
         >
           Home
-        </a>
-        <a
+        </Link>
+        <Link
           className={`text-base font-semibold ${
             pathname === "/academic" && "underline underline-offset-8"
           }`}
           href="/academic"
         >
           Academic History
-        </a>
-        <a
+        </Link>
+        <Link
           className={`text-base font-semibold ${
             pathname === "/experience" && "underline underline-offset-8"
           }`}
           href="/experience"
         >
           Experience
-        </a>
-        <a
+        </Link>
+        <Link
           className={`text-base font-semibold ${
             pathname === "/project" && "underline underline-offset-8"
           }`}
           href="/project"
         >
           Projects
-        </a>
-        <a
+        </Link>
+        <Link
           className={`text-base font-semibold ${
             pathname === "/blog" && "underline underline-offset-8"
           }`}
           href="/blog"
         >
           Blog
-        </a>
+        </Link>
       </div>
     </div>
   );
