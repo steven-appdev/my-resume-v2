@@ -1,6 +1,6 @@
 "use client";
 
-import { hover, motion, Variants } from "motion/react";
+import { motion, Variants } from "motion/react";
 import React from "react";
 
 type RoadmapProps = {
