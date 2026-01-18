@@ -16,7 +16,7 @@ function Showcase({ projects }: ShowcaseProps) {
   return (
     <div className="grid grid-cols-3 w-full gap-14 px-52">
       {projects &&
-        projects.map((project) => (
+        projects.map((project, index) => (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -25,6 +25,7 @@ function Showcase({ projects }: ShowcaseProps) {
               ease: "easeIn",
             }}
             className="bg-neutral-800 shadow-lg shadow-black min-h-64 flex flex-col items-center px-9 py-8 gap-4 justify-center"
+            key={index}
           >
             <p className="text-white text-center text-2xl">{project.title}</p>
             <p className="text-white text-center text-xs">{project.type}</p>
