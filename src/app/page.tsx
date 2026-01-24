@@ -1,6 +1,7 @@
 "use client";
 
 import Academic from "@/components/academic/page";
+import Footer from "@/components/footer";
 import Main from "@/components/main/page";
 import PastProject from "@/components/projects/page";
 import { useMotionValueEvent, useScroll } from "motion/react";
@@ -36,6 +37,9 @@ export default function Home() {
       </section>
       <section id="past-project" className="snap-start">
         <PastProject direction={direction} />
+      </section>
+      <section id="footer" className="snap-start">
+        <Footer />
       </section>
     </main>
   );

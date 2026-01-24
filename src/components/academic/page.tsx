@@ -1,10 +1,12 @@
 "use client";
 
 import { motion, Variants } from "motion/react";
-import React from "react";
+import React, { useState } from "react";
+import NextPageIndicator from "../nextpage";
 
 type RoadmapProps = {
   histories: AcademicHistoryType[];
+  onComplete: () => void;
 };
 
 type AcademicHistoryType = {
@@ -16,105 +18,105 @@ type AcademicHistoryType = {
   end: number;
 };
 
-function Roadmap({ histories }: RoadmapProps) {
+function Roadmap({ histories, onComplete }: RoadmapProps) {
   const containerVariants: Variants = {
-    hidden: { opacity: 0, scaleX: 0, originX: 0 },
     visible: {
-      opacity: 1,
-      scaleX: 1,
       transition: {
-        duration: 0.5,
-        ease: "easeInOut",
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
         delayChildren: 0.3,
       },
     },
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, scale: 0 },
+  const lineVariants: Variants = {
+    hidden: { opacity: 0, scaleX: 0, originX: 0 },
     visible: {
+      scaleX: 1,
       opacity: 1,
-      scale: 1,
       transition: {
-        duration: 0.3,
+        ease: "easeInOut",
+        duration: 1,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
+      y: 0,
       opacity: 1,
-      y: -30,
       transition: {
-        duration: 0.2,
+        duration: 0.4,
       },
     },
   };
-
   return (
-    <>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+      className="relative flex flex-col"
+      onAnimationComplete={onComplete}
+    >
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        className="relative border-2 border-dashed border-white w-4/5"
-      >
+        variants={lineVariants}
+        className="absolute top-[96.5%] w-full border-dashed border border-white -translate-y-[59px]"
+      />
+      <div className="flex flex-row gap-20">
         {histories &&
           histories.length > 0 &&
           histories.map((history, index) => (
             <React.Fragment key={index}>
               <motion.div
-                variants={itemVariants}
-                className={`absolute w-6 h-6 border ring ring-white ring-offset-2 border-gap-2 bg-white rounded-full top-1/2 -translate-y-1/2`}
-                style={{ left: `${(index / (histories.length - 1)) * 100}%` }}
-              />
-              <motion.div
                 variants={cardVariants}
-                className={`absolute flex flex-col items-center justify-center w-1/3 px-10 h-44 -translate-x-[45%] -translate-y-60 gap-4 shadow-lg shadow-black hover:shadow-xl transition ease-in-out duration-300 bg-neutral-800`}
-                style={{ left: `${(index / (histories.length - 1)) * 100}%` }}
+                className="flex flex-col gap-8"
               >
-                <p className="text-white text-center text-lg">
-                  {history.award}
-                </p>
-                <div className="flex flex-col">
-                  <p className="text-white text-center text-sm">
-                    {history.university}
-                  </p>
-                  <p className="text-white text-center text-sm">
-                    {history.country}
+                <div className="w-96 h-full bg-neutral-800 shadow-lg shadow-black px-8 py-7 flex flex-col gap-5">
+                  <div className="h-full">
+                    <p className="text-white text-left text-lg">
+                      {history.award}
+                    </p>
+                  </div>
+                  <div className="flex flex-col h-1/2">
+                    <p className="text-white text-left text-sm">
+                      {history.university}
+                    </p>
+                    <p className="text-white text-left text-sm">
+                      {history.country}
+                    </p>
+                  </div>
+                </div>
+                <div className="items-center flex justify-center">
+                  <div className="z-50 w-6 h-6 border ring ring-white ring-offset-2 ring- ring- border-gap-2 bg-white rounded-full" />
+                </div>
+                <div className="items-center flex justify-center">
+                  <p className="text-white text-center text-base">
+                    {history.start}
                   </p>
                 </div>
               </motion.div>
-              <div
-                className={`absolute w-[250px] -translate-x-[45%] translate-y-8`}
-                style={{
-                  left: `${(index / (histories.length - 1)) * 100}%`,
-                }}
-              >
-                <p className="text-white text-center text-sm">
-                  {history.start}
-                </p>
-              </div>
             </React.Fragment>
           ))}
-      </motion.div>
-    </>
+      </div>
+    </motion.div>
   );
 }
 
 export default function Academic({ direction }: { direction: string }) {
+  const [animationCompleted, setAnimationCompleted] = useState(false);
+
   return (
     <motion.div
-      className="flex flex-col h-screen"
+      className="flex flex-col h-screen items-center justify-center pb-24"
       initial={{ opacity: 0, y: direction === "up" ? 100 : -100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8 }}
+      onViewportLeave={() => setAnimationCompleted(false)}
     >
-      <div className="flex-grow flex flex-col items-center justify-center px-72 pt-20">
+      <div className="flex flex-col w-full items-center justify-center px-72 gap-16">
+        <p className="text-white text-[38px]">education journey</p>
         <Roadmap
           histories={[
             {
@@ -142,7 +144,11 @@ export default function Academic({ direction }: { direction: string }) {
               end: 2024,
             },
           ]}
+          onComplete={() => setAnimationCompleted(true)}
         />
+        <div className="pt-9">
+          <NextPageIndicator animationCompleted={animationCompleted} />
+        </div>
       </div>
     </motion.div>
   );
