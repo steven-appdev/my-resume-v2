@@ -1,3 +1,4 @@
+import { trpc } from "@/trpc/client";
 import { motion } from "motion/react";
 
 type ShowcaseProps = {
@@ -87,6 +88,7 @@ function Showcase({ projects }: ShowcaseProps) {
 }
 
 export default function PastProject({ direction }: { direction: string }) {
+  const { data: projectsData } = trpc.project.getAll.useQuery();
   return (
     <motion.div
       className="flex flex-col min-h-screen items-center justify-center pt-36 pb-48 gap-16"
@@ -96,7 +98,27 @@ export default function PastProject({ direction }: { direction: string }) {
       transition={{ duration: 0.8 }}
     >
       <p className="text-white text-[38px]">here are my Projects.</p>
-      <Showcase
+      {projectsData ? (
+        <Showcase
+          projects={projectsData.map((project) => ({
+            title: project.title,
+            type: "",
+            description: project.description,
+            tags: project.tags,
+            ...(project.urlDisplayText &&
+              project.url && {
+                link: {
+                  text: project.urlDisplayText || "View Project",
+                  url: project.url,
+                },
+              }),
+          }))}
+        />
+      ) : (
+        <div className="text-white">Loading projects...</div>
+      )}
+
+      {/* <Showcase
         projects={[
           {
             title: "My Resume V2",
@@ -172,7 +194,7 @@ export default function PastProject({ direction }: { direction: string }) {
             },
           },
         ]}
-      />
+      /> */}
     </motion.div>
   );
 }
