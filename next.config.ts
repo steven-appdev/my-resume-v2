@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  images: {
-    unoptimized: true,
-  },
+  // Enable the experimental app directory feature
 };
 
 export default nextConfig;
