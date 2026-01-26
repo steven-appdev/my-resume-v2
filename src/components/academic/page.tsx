@@ -61,20 +61,24 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
     >
       <motion.div
         variants={lineVariants}
-        className="absolute top-[96.5%] w-full border-dashed border border-white -translate-y-[59px]"
+        className="absolute hidden 2xl:block top-[96.5%] w-full border-dashed border border-white -translate-y-[59px]"
       />
-      <div className="flex flex-row gap-20">
+      <motion.div
+        variants={lineVariants}
+        className="absolute 2xl:hidden left-1/2 h-full border-dashed border border-white -translate-x-[3px]"
+      />
+      <div className="flex flex-col 2xl:flex-row gap-12 2xl:gap-20">
         {histories &&
           histories.length > 0 &&
           histories.map((history, index) => (
             <React.Fragment key={index}>
               <motion.div
                 variants={cardVariants}
-                className="flex flex-col gap-8"
+                className="flex flex-col gap-6 2xl:gap-8 items-center z-50"
               >
-                <div className="w-96 h-full bg-neutral-800 shadow-lg shadow-black px-8 py-7 flex flex-col gap-5">
+                <div className="w-full max-w-sm 2xl:w-96 h-full bg-neutral-800 shadow-lg shadow-black px-6 py-5 2xl:px-8 2xl:py-7 flex flex-col gap-4 2xl:gap-5 2xl:border-0">
                   <div className="h-full">
-                    <p className="text-white text-left text-lg">
+                    <p className="text-white text-left text-base 2xl:text-lg leading-snug">
                       {history.award}
                     </p>
                   </div>
@@ -88,10 +92,10 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
                   </div>
                 </div>
                 <div className="items-center flex justify-center">
-                  <div className="z-50 w-6 h-6 border ring ring-white ring-offset-2 ring- ring- border-gap-2 bg-white rounded-full" />
+                  <div className="z-50 w-5 h-5 2xl:w-6 2xl:h-6 border ring ring-white ring-offset-2 bg-white rounded-full -translate-x-0.5 2xl:translate-0" />
                 </div>
                 <div className="items-center flex justify-center">
-                  <p className="text-white text-center text-base">
+                  <p className="text-black 2xl:text-white text-center text-sm 2xl:text-base bg-white px-3 py-1 2xl:p-0 rounded-xl 2xl:bg-transparent 2xl:rounded-none">
                     {history.start}
                   </p>
                 </div>
@@ -108,15 +112,15 @@ export default function Academic({ direction }: { direction: string }) {
 
   return (
     <motion.div
-      className="flex flex-col h-screen items-center justify-center pb-24"
+      className="flex flex-col min-h-screen items-center justify-center py-16 2xl:py-24"
       initial={{ opacity: 0, y: direction === "up" ? 100 : -100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.8 }}
       onViewportLeave={() => setAnimationCompleted(false)}
     >
-      <div className="flex flex-col w-full items-center justify-center px-72 gap-16">
-        <p className="text-white text-[38px]">education journey</p>
+      <div className="flex flex-col w-full items-center justify-center px-6 2xl:px-72 gap-10 2xl:gap-16">
+        <p className="text-white text-2xl 2xl:text-[38px]">education journey</p>
         <Roadmap
           histories={[
             {
@@ -146,7 +150,7 @@ export default function Academic({ direction }: { direction: string }) {
           ]}
           onComplete={() => setAnimationCompleted(true)}
         />
-        <div className="pt-9">
+        <div className="pt-6 2xl:pt-9">
           <NextPageIndicator animationCompleted={animationCompleted} />
         </div>
       </div>

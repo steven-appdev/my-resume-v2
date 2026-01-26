@@ -4,7 +4,7 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 export const projectRouter = createTRPCRouter({
   getAll: publicProcedure.query(async ({ ctx }) => {
     return ctx.db.project.findMany({
-      orderBy: { createdAt: "desc" },
+      orderBy: { createdAt: "asc" },
     });
   }),
 

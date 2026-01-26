@@ -18,29 +18,31 @@ type ShowcaseType = {
 
 function Showcase({ projects }: ShowcaseProps) {
   return (
-    <div className="grid grid-cols-2 w-full gap-14 px-28">
+    <div className="grid grid-cols-1 xl:grid-cols-2 w-full gap-8 sm:gap-14 px-6 sm:px-28">
       {projects &&
         projects.map((project, index) => (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: false }}
             transition={{
               ease: "easeIn",
             }}
-            className="bg-neutral-800 shadow-lg shadow-black min-h-[28rem] flex flex-row items-center justify-center"
+            className="bg-neutral-800 shadow-lg shadow-black min-h-[28rem] flex flex-col sm:flex-row items-center justify-center"
             key={index}
           >
-            <div className="w-1/3 h-full">
+            <div className="w-full sm:w-1/3 h-48 sm:h-full">
               <img
                 src="/images/pexels-pixabay-206359.jpg"
-                className="w-full h-full object-none"
+                className="w-full h-full object-cover sm:object-none"
               />
             </div>
-            <div className="w-2/3 h-full p-6 flex flex-col justify-between">
+            <div className="w-full sm:w-2/3 h-full p-6 flex flex-col justify-between gap-4 sm:gap-0">
               <div className="gap-3 flex flex-col">
-                <p className="text-white text-left text-xl">{project.title}</p>
-                <p className="text-white text-left text-sm leading-7">
+                <p className="text-white text-left text-lg sm:text-xl">
+                  {project.title}
+                </p>
+                <p className="text-white text-left text-sm leading-6 sm:leading-7">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
@@ -91,13 +93,14 @@ export default function PastProject({ direction }: { direction: string }) {
   const { data: projectsData } = trpc.project.getAll.useQuery();
   return (
     <motion.div
-      className="flex flex-col min-h-screen items-center justify-center pt-36 pb-48 gap-16"
+      className="flex flex-col min-h-screen items-center justify-center pt-20 sm:pt-36 pb-24 sm:pb-48 gap-10 sm:gap-16"
       initial={{ opacity: 0, y: direction === "up" ? 100 : -100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8 }}
     >
-      <p className="text-white text-[38px]">here are my Projects.</p>
+      <p className="text-white text-2xl sm:text-[38px]">
+        here are my Projects.
+      </p>
       {projectsData ? (
         <Showcase
           projects={projectsData.map((project) => ({
@@ -115,86 +118,115 @@ export default function PastProject({ direction }: { direction: string }) {
           }))}
         />
       ) : (
-        <div className="text-white">Loading projects...</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-8 sm:gap-14 px-6 sm:px-28">
+          {[1, 2, 3, 4].map((index) => (
+            <motion.div
+              key={index}
+              className="bg-neutral-800 shadow-lg shadow-black min-h-[28rem] flex flex-col sm:flex-row items-center justify-center overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
+            >
+              <motion.div
+                className="w-full sm:w-1/3 h-48 sm:h-full bg-neutral-700"
+                animate={{
+                  opacity: [0.5, 0.8, 0.5],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <div className="w-full sm:w-2/3 h-full p-6 flex flex-col justify-between gap-4">
+                <div className="gap-3 flex flex-col">
+                  <motion.div
+                    className="bg-neutral-700 h-7 w-3/4 rounded"
+                    animate={{
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.1,
+                    }}
+                  />
+                  <motion.div
+                    className="bg-neutral-700 h-4 w-full rounded mt-2"
+                    animate={{
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.2,
+                    }}
+                  />
+                  <motion.div
+                    className="bg-neutral-700 h-4 w-full rounded"
+                    animate={{
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.3,
+                    }}
+                  />
+                  <motion.div
+                    className="bg-neutral-700 h-4 w-2/3 rounded"
+                    animate={{
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 0.4,
+                    }}
+                  />
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {[1, 2, 3].map((tagIndex) => (
+                      <motion.div
+                        key={tagIndex}
+                        className="bg-neutral-700 h-6 w-16 rounded"
+                        animate={{
+                          opacity: [0.5, 0.8, 0.5],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 0.5 + tagIndex * 0.1,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <motion.div
+                  className="border-2 border-neutral-700 w-full h-10 rounded"
+                  animate={{
+                    opacity: [0.5, 0.8, 0.5],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8,
+                  }}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       )}
-
-      {/* <Showcase
-        projects={[
-          {
-            title: "My Resume V2",
-            type: "Self Improvement",
-            description:
-              "A personal portfolio and resume website built with ReactJS and Tailwind CSS. Designed to showcase my professional journey and projects, this site serves as both a central hub for my work and a practical application of my front-end development skills.",
-            tags: ["React", "NextJS", "Tailwind", "Motion"],
-            link: {
-              text: "Source Code",
-              url: "https://github.com/steven-appdev/my-resume-v2",
-            },
-          },
-          {
-            title: "Smart Plant Caring System using IoT",
-            type: "Bachelor's Degree Final Year Project",
-            description:
-              "An automated plant maintenance system developed for my Bachelor's Final Year Project. It utilizes IoT sensors to monitor plant health and a custom web dashboard to visualize real-time data. This project integrates a robust stack including MQTT, InfluxDB, and Docker.",
-            tags: [
-              "PHP",
-              "IoT",
-              "Docker",
-              "MSSQL",
-              "MQTT",
-              "Telegraf",
-              "InfluxDB",
-              "Bootstrap",
-              "JavaScript",
-            ],
-            link: {
-              text: "View Dissertation",
-              url: "/documents/spcs-dissertation.pdf",
-            },
-          },
-          {
-            title: "Starducks Coffee",
-            type: "Self Improvement",
-            description:
-              "A fast-paced management game developed in C# using the Godot engine for Coffee Jam 2023. Created within a 14-day timeframe, players take on the role of a barista managing customer orders and patience, emphasizing game logic and time-management mechanics.",
-            tags: ["Godot", "C#", "Aseprite", "Game Jam"],
-            link: {
-              text: "Itch.io Page",
-              url: "https://stevenplus.itch.io/starducks-coffee",
-            },
-          },
-          {
-            title: "Interaction Visualisation for National Student Survey Data",
-            type: "Master's Degree Final Year Project",
-            description:
-              "Part of my Master's Final Year Project, this interactive dashboard visualizes National Student Survey (NSS) metrics. Built with TypeScript and React, it allows users to analyze institutional performance, positivity scores, and student satisfaction through intuitive data visualization.",
-            tags: ["Typescript", "React", "Tailwind", "MySQL", "PHP"],
-            link: {
-              text: "View Dissertation",
-              url: "/documents/nss-dissertation.pdf",
-            },
-          },
-          {
-            title:
-              "National Student Survey (NSS) Data Integration System using ETL Approach",
-            type: "Master's Degree Final Year Project",
-            description:
-              "A cloud-based ETL system built with Python, Spark, and Docker on Azure. Engineered to process and integrate big data (NSS surveys) into a central database with high efficiency and scalability.",
-            tags: [
-              "Python",
-              "Apache Spark",
-              "ETL Approach",
-              "Microsoft Azure",
-              "Docker",
-              "Big Data",
-            ],
-            link: {
-              text: "Source Code",
-              url: "https://github.com/steven-appdev/nss-integration-api",
-            },
-          },
-        ]}
-      /> */}
     </motion.div>
   );
 }
