@@ -4,6 +4,7 @@ import Academic from "@/components/academic/page";
 import Footer from "@/components/footer";
 import Main from "@/components/main/page";
 import PastProject from "@/components/projects/page";
+import Skills from "@/components/skills/page";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useRef, useState } from "react";
 
@@ -37,6 +38,9 @@ export default function Home() {
       </section>
       <section id="past-project" className="snap-start">
         <PastProject direction={direction} />
+      </section>
+      <section id="skills" className="snap-start">
+        <Skills direction={direction} />
       </section>
       <section id="footer" className="snap-start">
         <Footer />

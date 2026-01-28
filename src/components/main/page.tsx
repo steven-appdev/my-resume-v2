@@ -9,7 +9,7 @@ export default function Main() {
 
   return (
     <motion.div
-      className="flex flex-col min-h-screen items-center justify-center pb-32 px-6 sm:pb-16 sm:px-1 "
+      className="flex flex-col min-h-screen items-center justify-center pb-32 px-6 sm:px-1 "
       initial={{ opacity: 0, y: -50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}

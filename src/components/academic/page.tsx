@@ -150,7 +150,7 @@ export default function Academic({ direction }: { direction: string }) {
           ]}
           onComplete={() => setAnimationCompleted(true)}
         />
-        <div className="pt-6 2xl:pt-9">
+        <div className="pt-6 2xl:pt-9 2xl:pb-0">
           <NextPageIndicator animationCompleted={animationCompleted} />
         </div>
       </div>
