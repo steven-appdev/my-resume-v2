@@ -19,7 +19,7 @@ function Skill({ skills }: SkillProps) {
             transition={{
               ease: "easeIn",
             }}
-            className="bg-neutral-800 shadow-lg shadow-black min-h-40 flex flex-col"
+            className="bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl shadow-black/50 min-h-40 flex flex-col"
             key={index}
           >
             <div className="flex flex-row items-center gap-6 px-7 pb-3 pt-5">
@@ -55,12 +55,12 @@ function Skill({ skills }: SkillProps) {
   );
 }
 
-export default function Skills({ direction }: { direction: string }) {
+export default function Skills() {
   const { data: technicalData } = trpc.technical.getAll.useQuery();
   return (
     <motion.div
       className="flex flex-col min-h-screen items-center justify-center pt-20 sm:pt-36 pb-24 sm:pb-48 gap-10 sm:gap-16"
-      initial={{ opacity: 0, y: direction === "up" ? 100 : -100 }}
+      initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >

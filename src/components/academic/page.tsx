@@ -76,7 +76,7 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
                 variants={cardVariants}
                 className="flex flex-col gap-6 2xl:gap-8 items-center z-50"
               >
-                <div className="w-full max-w-sm 2xl:w-96 h-full bg-neutral-800 shadow-lg shadow-black px-6 py-5 2xl:px-8 2xl:py-7 flex flex-col gap-4 2xl:gap-5 2xl:border-0">
+                <div className="w-full max-w-sm 2xl:w-96 h-full bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl shadow-black/50 px-6 py-5 2xl:px-8 2xl:py-7 flex flex-col gap-4 2xl:gap-5 2xl:border-0">
                   <div className="h-full">
                     <p className="text-white text-left text-base 2xl:text-lg leading-snug">
                       {history.award}
@@ -107,13 +107,13 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
   );
 }
 
-export default function Academic({ direction }: { direction: string }) {
+export default function Academic() {
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
   return (
     <motion.div
-      className="flex flex-col min-h-screen items-center justify-center py-16 2xl:py-24"
-      initial={{ opacity: 0, y: direction === "up" ? 100 : -100 }}
+      className="flex flex-col min-h-screen items-center justify-center pb-12"
+      initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.8 }}

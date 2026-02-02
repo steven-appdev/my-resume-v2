@@ -30,3 +30,14 @@ model Technical {
   skill String
   proficiency Int
 }
+
+model Experience {
+  id Int @id @default(autoincrement())
+  position String
+  company String
+  location String
+  startDate DateTime
+  endDate DateTime?
+  tags String[]
+  description String
+}
