@@ -49,7 +49,7 @@ export default function Home() {
       </section>
       <section id="footer" className="snap-none sm:snap-start">
         <p className="text-slate-100 italic text-4xl text-center mb-44">
-          "And countless to explore in the future..."
+          &quot;And countless to explore in the future...&quot;
         </p>
         <Footer />
       </section>
