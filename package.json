@@ -14,6 +14,7 @@
     "db:push": "prisma db push"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@neondatabase/serverless": "^1.0.2",
     "@netlify/plugin-nextjs": "^5.12.1",
     "@prisma/adapter-neon": "^7.3.0",
@@ -29,6 +30,7 @@
     "next-auth": "5.0.0-beta.30",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.71.1",
     "superjson": "^2.2.6",
     "typewriter-effect": "^2.22.0",
     "ws": "^8.19.0",

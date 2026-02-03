@@ -24,6 +24,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (credentials.username !== adminUsername) {
           return null;
         }
+
+        const isValidPassword = await compare(
+          credentials.password as string,
+          adminPasswordHash,
+        );
+
+        if (!isValidPassword) {
+          return null;
+        }
+
         return {
           id: "1",
           name: "Admin",
