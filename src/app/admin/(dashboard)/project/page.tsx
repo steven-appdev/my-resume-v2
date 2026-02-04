@@ -53,7 +53,7 @@ export default function ProjectDashboard() {
           <Link href="/admin/dashboard">
             <ArrowLeftCircle className="w-7 h-7 text-white cursor-pointer" />
           </Link>
-          <p className="text-white">Back to Dashboard</p>
+          <p className="text-white">Projects</p>
         </div>
         <button
           onClick={() => setIsModalOpen(true)}

@@ -54,4 +54,10 @@ export const technicalRouter = createTRPCRouter({
         where: { id: input.id },
       });
     }),
+
+  test: publicProcedure
+    .meta({ openapi: { method: "GET", path: "/technical/test" } })
+    .query(async () => {
+      return { message: "Technical router is working!" };
+    }),
 });

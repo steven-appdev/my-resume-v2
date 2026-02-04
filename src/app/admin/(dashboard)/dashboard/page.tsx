@@ -86,16 +86,22 @@ export default function AdminDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Experience Card */}
-              <Link href="/admin/experience">
+              <Link href="/admin/ai">
                 <div className="relative bg-gradient-to-br from-neutral-800 to-neutral-900 p-6 rounded-lg shadow-xl shadow-black/50 border hover:border-amber-500/50 transition-all overflow-hidden group cursor-pointer">
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-yellow-300 to-amber-500" />
                   <div className="relative z-10">
                     <div className="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center mb-4">
                       <BotMessageSquare className="w-6 h-6 text-amber-400" />
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      Content Generator
-                    </h3>
+                    <div className="flex flex-row items-center gap-3">
+                      <h3 className="text-lg font-semibold text-white mb-2">
+                        AI Content Assistant
+                      </h3>
+                      <div className="border-2 border-white rounded-lg px-2 mb-2">
+                        <p className="text-white text-sm">BETA</p>
+                      </div>
+                    </div>
+
                     <p className="text-neutral-400 text-sm">
                       Generate content using AI assistance
                     </p>
