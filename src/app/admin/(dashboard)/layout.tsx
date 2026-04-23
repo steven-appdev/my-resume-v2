@@ -18,11 +18,9 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 min-h-0 overflow-y-scroll overscroll-contain">
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
