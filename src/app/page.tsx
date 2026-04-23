@@ -8,7 +8,6 @@ import PastProject from "@/components/projects/page";
 import Skills from "@/components/skills/page";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useRef, useState } from "react";
-import Typewriter from "typewriter-effect";
 
 export default function Home() {
   const containerRef = useRef<HTMLElement>(null);

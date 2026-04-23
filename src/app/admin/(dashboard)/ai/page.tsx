@@ -117,7 +117,10 @@ export default function AIDashboard() {
   };
 
   return (
-    <div className="h-[600px] flex flex-col p-4 sm:p-6 max-w-7xl mx-auto w-full">
+    <div
+      className="flex flex-col p-4 sm:p-6 max-w-7xl mx-auto w-full"
+      style={{ height: "calc(100dvh - 14rem)" }}
+    >
       {/* Header */}
       <div className="flex flex-row items-center gap-5 mb-4 shrink-0">
         <Link href="/admin/dashboard">

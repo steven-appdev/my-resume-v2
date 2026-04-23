@@ -14,23 +14,25 @@ export default function Header() {
   };
 
   return (
-    <div className="pt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-7 border-b border-neutral-600">
+    <div className="pt-4 sm:pt-8">
+      <div className="mx-auto px-4 sm:px-16 lg:px-36 pb-4 sm:pb-7 border-b border-neutral-600">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-              <Settings className="w-6 h-6 text-white" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center">
+              <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">
+              <h1 className="text-base sm:text-xl font-bold text-white">
                 Admin CMS Dashboard
               </h1>
-              <p className="text-sm text-neutral-400">Welcome back, Steven</p>
+              <p className="text-xs sm:text-sm text-neutral-400">
+                Welcome back, Steven
+              </p>
             </div>
           </div>
           <motion.button
             onClick={handleSignOut}
-            className="px-4 py-2 border-2 border-red-500/50 text-red-400 rounded-lg hover:bg-red-500/20 flex items-center gap-2 transition-all cursor-pointer"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 border-2 border-red-500/50 text-red-400 rounded-lg hover:bg-red-500/20 flex items-center gap-2 transition-all cursor-pointer"
           >
             <LogOutIcon className="w-4 h-4" />
             <p className="hidden sm:block">Sign Out</p>

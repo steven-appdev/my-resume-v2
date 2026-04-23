@@ -35,8 +35,13 @@ body {
 
 p,
 span,
-a {
+a,
+table {
   font-family: var(--font-geist-mono);
+}
+
+table {
+  font-size: small;
 }
 
 @layer utilities {

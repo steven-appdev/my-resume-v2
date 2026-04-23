@@ -67,7 +67,7 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
         variants={lineVariants}
         className="absolute 2xl:hidden left-1/2 h-full border-dashed border border-white -translate-x-[3px]"
       />
-      <div className="flex flex-col 2xl:flex-row gap-12 2xl:gap-20">
+      <div className="flex flex-col xl:flex-row gap-12 2xl:gap-20">
         {histories &&
           histories.length > 0 &&
           histories.map((history, index) => (
