@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <main
       ref={containerRef}
-      className="flex flex-col h-screen snap-y snap-mandatory overflow-y-scroll"
+      className="flex flex-col h-screen snap-y snap-proximity overflow-y-scroll"
     >
       <section id="main" className="snap-none sm:snap-start">
         <Main />
