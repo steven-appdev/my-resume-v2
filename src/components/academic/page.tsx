@@ -74,7 +74,7 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
             <React.Fragment key={index}>
               <motion.div
                 variants={cardVariants}
-                className="flex flex-col gap-6 2xl:gap-8 items-center z-50"
+                className="flex flex-col gap-6 2xl:gap-8 items-center z-10"
               >
                 <div className="w-full max-w-sm 2xl:w-96 h-full bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl shadow-black/50 px-6 py-5 2xl:px-8 2xl:py-7 flex flex-col gap-4 2xl:gap-5 2xl:border-0">
                   <div className="h-full">
@@ -92,7 +92,7 @@ function Roadmap({ histories, onComplete }: RoadmapProps) {
                   </div>
                 </div>
                 <div className="items-center flex justify-center">
-                  <div className="z-50 w-5 h-5 2xl:w-6 2xl:h-6 border ring ring-white ring-offset-2 bg-white rounded-full -translate-x-0.5 2xl:translate-0" />
+                  <div className="w-5 h-5 2xl:w-6 2xl:h-6 border ring ring-white ring-offset-2 bg-white rounded-full -translate-x-0.5 2xl:translate-0" />
                 </div>
                 <div className="items-center flex justify-center">
                   <p className="text-black 2xl:text-white text-center text-sm 2xl:text-base bg-white px-3 py-1 2xl:p-0 rounded-xl 2xl:bg-transparent 2xl:rounded-none">
