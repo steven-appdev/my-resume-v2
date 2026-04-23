@@ -8,13 +8,12 @@ import {
   BriefcaseBusiness,
   FolderGit2,
 } from "lucide-react";
-import Footer from "@/components/footer";
 
 export default function AdminDashboard() {
   return (
     <div className="min-h-full">
       {/* Main Content */}
-      <div className="mx-auto px-4 sm:px-16 lg:px-36 py-12 pb-32">
+      <div className="mx-auto px-4 sm:px-16 lg:px-36 py-12 pb-36">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,7 +112,6 @@ export default function AdminDashboard() {
           </div>
         </motion.div>
       </div>
-      <Footer />
     </div>
   );
 }
