@@ -8,6 +8,7 @@ import {
   BriefcaseBusiness,
   FolderGit2,
 } from "lucide-react";
+import Footer from "@/components/footer";
 
 export default function AdminDashboard() {
   return (
@@ -112,6 +113,7 @@ export default function AdminDashboard() {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }
